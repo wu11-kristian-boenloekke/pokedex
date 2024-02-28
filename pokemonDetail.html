@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pokemon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="typeColors.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <a class="backButton" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
+                viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 9.059V6.5a1.001 1.001 0 0 0-1.707-.708L4 12l6.293 6.207a.997.997 0 0 0 1.414 0A.999.999 0 0 0 12 17.5v-2.489c2.75.068 5.755.566 8 3.989v-1c0-4.633-3.5-8.443-8-8.941" />
+            </svg></a>
+
+        <h1 class="detailHeading"><span class="spanHeading">...loading</span></h1>
+
+        <div class="imageContainer">
+            <svg class="pokeballSVG" width="100" height="100" viewBox="0 0 512 512" fill="url(#pcn-ds)" stroke="#000"
+                stroke-width="3">
+                <defs>
+                    <linearGradient id="pcn-ds" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                        <stop offset="45%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                        <stop offset="45%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                        <stop offset="55%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                        <stop offset="55%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                    </linearGradient>
+
+                </defs>
+                <circle cx="256" cy="256" r="62" fill="white" />
+                <path
+                    d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
+            </svg>
+
+        </div>
+
+        <div class="buttonsContainer">
+            <button class="previousPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path d="M0 12l9-8v6h15v4h-15v6z" />
+                </svg></button>
+            <button class="switchButton" onclick="handleSwitchButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512">
+                    <title>ionicons-v5-b</title>
+                    <path d="M320,146s24.36-12-64-12A160,160,0,1,0,416,294"
+                        style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:52px" />
+                    <polyline points="256 58 336 138 256 218"
+                        style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px" />
+                </svg>
+            </button>
+            <button class="nextPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path d="M24 12l-11-8v6h-13v4h13v6z" />
+                </svg></button>
+        </div>
+
+        <form class="container__form" action="pokemonDetail.html" autocomplete="off">
+            <label>
+                <input type="search" name="name" class="searchInput" placeholder="Write name or number">
+
+            </label>
+            <button class="searchButton" type="submit">Search</button>
+        </form>
+
+        <div class="pokemon"></div>
+
+
+
+
+    </div>
+
+    <script src="pokemonDetail.js" defer></script>
+    <script src="api.js" defer type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="listHeading">Pokedex</h1>
+    <form class="container__form" action="pokemonDetail.html" autocomplete="off">
+        <label>
+            <input type="search" name="name" class="searchInput" placeholder="Write name or number">
+            
+        </label>
+        <button type="submit" class="searchButton">Search</button>
+    </form>
+
+    <div class="offset">
+    <a href="" class="prevPage">Previous</a> | <a href="" class="nextPage">Next</a>
+</div>
+
+    <ul class="pokeList"></ul>
+
+    <ul class="pokeType"></ul>
+
+      <script src="pokeList.js" defer type="module"></script>
+    
+</body>
+</html>
