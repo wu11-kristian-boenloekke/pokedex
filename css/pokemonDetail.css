@@ -1,6 +1,6 @@
 .detailContainer {
     background-color: rgb(200, 4, 4);
-    margin: 0;
+    margin: 3rem;
 
 }
 
@@ -25,9 +25,6 @@
     display: flex;
     justify-content: center;
     margin: 0.5rem;
-    
-
-
 
 }
 
@@ -49,14 +46,6 @@
     border-radius: 50px 0 0 50px;
    
 }
-
-
-
-.topRightContainer{
-    background-color: #fff;
-}
-
-
 
 
 .detailHeading {
@@ -324,7 +313,7 @@
     .detailContainer {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        border: 10px double #000;
+        
         border-radius: 10px;
         width: 50rem;
     }
@@ -335,7 +324,10 @@
 
     }
 
+   
+
     #right-top-upper {
+        margin-top: 3rem;
         display: block;
         border-radius: 5%;
         width: 100%;
