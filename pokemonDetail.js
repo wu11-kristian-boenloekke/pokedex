@@ -34,6 +34,12 @@ async function fetchPokemonByName() {
      
          pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
 
+         const pokemonDescription2 = document.querySelector(".pokemonDescription2")
+         pokemonDescription2.innerHTML = `<div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name},</li>`).join("")}</div>
+         <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
+         <button class="switchEntryButton">&lt2/2</button>`;
+
+
         const pokemonSpecs = document.querySelector(".pokemonSpecs");
         pokemonSpecs.innerHTML = `
             <div class="specsContainer">
@@ -55,7 +61,7 @@ async function fetchPokemonByName() {
             <ul class="movesContainer">
             ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
             </ul>
-            </div>
+            </div> 
 
         `;
 
@@ -65,6 +71,7 @@ async function fetchPokemonByName() {
        
 
        const switchButton = document.querySelector('.switchImageButton').addEventListener('click', handleSwitchButton);
+       const switchEntryButton = document.querySelector(".switchEntryButton").addEventListener("click", handleEntryButton);
        
 
     } else {
@@ -83,13 +90,17 @@ async function fetchPokemonByName() {
     }
 }
 
-let isFrontImage = true;
+fetchPokemonByName()
+
+
+
+let switchButton = true;
 
 function handleSwitchButton() {
-    const frontImage = document.querySelector(".frontImage");
-    const backImage = document.querySelector(".backImage");
+    const frontImage = document.querySelector(".frontImage")
+    const backImage = document.querySelector(".backImage")
 
-    if (isFrontImage) {
+    if (switchButton) {
         frontImage.style.display = 'none';
         backImage.style.display = 'block';
     } else {
@@ -98,7 +109,24 @@ function handleSwitchButton() {
     }
 
     
-    isFrontImage = !isFrontImage;
+    switchButton = !switchButton;
+}
+
+let globalSwitchEntryButton = true;
+
+function handleEntryButton() {
+    const firstEntry = document.querySelector(".pokemonDescription")
+    const secondEntry = document.querySelector(".pokemonDescription2")
+
+    if (globalSwitchEntryButton) {
+        firstEntry.style.display = 'none'
+        secondEntry.style.display = 'block'
+    } else {
+        firstEntry.style.display = 'block'
+        secondEntry.style.display = 'none'
+    }
+
+    globalSwitchEntryButton = !globalSwitchEntryButton
 }
 
 
@@ -195,6 +223,8 @@ function updateURLAndFetch(newValue) {
     window.history.pushState({}, '', `?name=${newValue}`);
     fetchPokemonByName();
     fetchPokemonSpecies();
+
+
 }
 
 fetchPokemonByName();
@@ -214,14 +244,19 @@ async function fetchPokemonSpecies() {
         console.log(flavorTextEntry);
     
         const pokemonDescription = document.querySelector(".pokemonDescription");
-
+        
       
-        pokemonDescription.innerHTML = `${flavorTextEntry.flavor_text}`;
+        pokemonDescription.innerHTML = `<div class="entry1">${flavorTextEntry.flavor_text}</div>
+        <button class="switchEntryButton2">1/2&gt</button>`;
         
         
+        const switchEntryButton = document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
+       
+    
 }
 
 fetchPokemonSpecies()
+
 
 
 

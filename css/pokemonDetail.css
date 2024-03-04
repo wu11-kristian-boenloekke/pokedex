@@ -157,11 +157,58 @@
     margin: 1rem;
     color: #fff;
     background-color: #000;
-    padding: 1rem 0.5rem;
-    min-height: 4rem;
+    padding: 0.2rem 0.5rem;
+    min-height: 5rem;
+    position: relative;
+
+}
+
+.pokemonDescription2 {
+    margin: 1rem;
+    color: #fff;
+    background-color: #000;
+    padding: 0.2rem 0.5rem;
+    min-height: 5rem;
+    position: relative;
+    display: none;
+
+}
+
+
+.switchEntryButton{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0.5rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+}
+
+.switchEntryButton2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0.5rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+}
+
+.pokemonSize{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.abilities{
+    display: flex;
+    gap: 3px;
+}
+
+.abilities__li{
+    list-style: none;
     
-
-
 }
 
 .descritptionText {
@@ -320,10 +367,14 @@
     .leftContainer{
         width: 25rem;
         border-right: 3px solid #000;
+        
+        border-radius: 10px;
 
     }
 
-   
+    .topRightContainer{
+        
+    }
 
     #right-top-upper {
         margin-top: 3rem;
