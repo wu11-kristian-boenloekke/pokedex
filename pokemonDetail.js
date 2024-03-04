@@ -32,7 +32,7 @@ async function fetchPokemonByName() {
          ).join("");
          
      
-         pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
+         pokemonStats.innerHTML = `</select><ul class="ul__stats">${statsList}</ul>`;
 
          const pokemonDescription2 = document.querySelector(".pokemonDescription2")
          pokemonDescription2.innerHTML = `<div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name},</li>`).join("")}</div>
@@ -63,6 +63,10 @@ async function fetchPokemonByName() {
             </ul>
             </div> 
 
+            <audio controls>
+                <source src="${data.cries.latest.file}" type="audio/ogg">
+            </audio>
+
         `;
 
         
@@ -70,8 +74,8 @@ async function fetchPokemonByName() {
         speakPokemonDetails(data);
        
 
-       const switchButton = document.querySelector('.switchImageButton').addEventListener('click', handleSwitchButton);
-       const switchEntryButton = document.querySelector(".switchEntryButton").addEventListener("click", handleEntryButton);
+        document.querySelector('.switchImageButton').addEventListener('click', handleSwitchButton);
+      document.querySelector(".switchEntryButton").addEventListener("click", handleEntryButton);
        
 
     } else {
@@ -92,15 +96,16 @@ async function fetchPokemonByName() {
 
 fetchPokemonByName()
 
+const audioElement = document.getElementById('pokemonCryAudio');
 
 
-let switchButton = true;
+let switchImageButton = true;
 
 function handleSwitchButton() {
     const frontImage = document.querySelector(".frontImage")
     const backImage = document.querySelector(".backImage")
 
-    if (switchButton) {
+    if (switchImageButton) {
         frontImage.style.display = 'none';
         backImage.style.display = 'block';
     } else {
@@ -109,16 +114,16 @@ function handleSwitchButton() {
     }
 
     
-    switchButton = !switchButton;
+    switchImageButton = !switchImageButton;
 }
 
-let globalSwitchEntryButton = true;
+let switchEntryButton = true;
 
 function handleEntryButton() {
     const firstEntry = document.querySelector(".pokemonDescription")
     const secondEntry = document.querySelector(".pokemonDescription2")
 
-    if (globalSwitchEntryButton) {
+    if (switchEntryButton) {
         firstEntry.style.display = 'none'
         secondEntry.style.display = 'block'
     } else {
@@ -126,7 +131,7 @@ function handleEntryButton() {
         secondEntry.style.display = 'none'
     }
 
-    globalSwitchEntryButton = !globalSwitchEntryButton
+    switchEntryButton = !switchEntryButton
 }
 
 
@@ -250,7 +255,7 @@ async function fetchPokemonSpecies() {
         <button class="switchEntryButton2">1/2&gt</button>`;
         
         
-        const switchEntryButton = document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
+        document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
        
     
 }
