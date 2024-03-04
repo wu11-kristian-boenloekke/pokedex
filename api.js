@@ -2,7 +2,7 @@
 
 export async function getPokemonList() {
 
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0")
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`)
     const data = await response.json() //returnerer json objekt, med resolved liste af pokemoner
     
     return data
