@@ -1,6 +1,5 @@
 .detailContainer {
     background-color: rgb(200, 4, 4);
-    margin: 3rem;
 
 }
 
@@ -313,9 +312,9 @@
     .detailContainer {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        
         border-radius: 10px;
         width: 50rem;
+        margin: 3rem;
     }
 
     .leftContainer{
