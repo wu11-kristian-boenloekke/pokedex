@@ -63,11 +63,20 @@ async function fetchPokemonByName() {
             </ul>
             </div> 
 
-            <audio controls>
-                <source src="${data.cries.latest.file}" type="audio/ogg">
-            </audio>
+            
 
         `;
+
+        const audioElement = document.querySelector(".cry");
+        const playButton = document.querySelector(".playButton");
+
+        audioElement.src = data.cries.latest;
+        audioElement.type = "audio/ogg";
+        
+        playButton.addEventListener("click", () => {
+                audioElement.play();
+            
+        });
 
         
 
@@ -95,8 +104,6 @@ async function fetchPokemonByName() {
 }
 
 fetchPokemonByName()
-
-const audioElement = document.getElementById('pokemonCryAudio');
 
 
 let switchImageButton = true;

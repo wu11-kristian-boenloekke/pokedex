@@ -14,106 +14,113 @@
 <body>
     <div class="detailContainer">
 
-        <div class="leftContainer">        
-        <div class="topContainer">
-            <div class="topContainer_buttons">
-               <a class="backToMenuButton" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                viewBox="0 0 24 24">
-                <path fill="currentColor"
-                    d="M12 9.059V6.5a1.001 1.001 0 0 0-1.707-.708L4 12l6.293 6.207a.997.997 0 0 0 1.414 0A.999.999 0 0 0 12 17.5v-2.489c2.75.068 5.755.566 8 3.989v-1c0-4.633-3.5-8.443-8-8.941" />
-            </svg></a>
+        <div class="leftContainer">
+            <div class="topContainer">
+                <div class="topContainer_buttons">
+                    <a class="backToMenuButton" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="2em"
+                            height="2em" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 9.059V6.5a1.001 1.001 0 0 0-1.707-.708L4 12l6.293 6.207a.997.997 0 0 0 1.414 0A.999.999 0 0 0 12 17.5v-2.489c2.75.068 5.755.566 8 3.989v-1c0-4.633-3.5-8.443-8-8.941" />
+                        </svg></a>
 
-            <button id="myBtn" onclick="myFunction()"><i class="fas fa-volume-up"></i></button>
+                    <button id="myBtn" onclick="myFunction()"><i class="fas fa-volume-up"></i></button>
+                </div>
+
+
+                <form class="searchContainer" action="pokemonDetail.html" autocomplete="off">
+                    <label>
+                        <input type="search" name="name" class="searchInput" placeholder="Search name or number">
+
+                    </label>
+                    <button class="searchButton" type="submit">
+                        <svg width="25" height="25" viewBox="0 0 512 512" fill="url(#pcn-ds)" stroke="#000"
+                            stroke-width="3">
+                            <defs>
+                                <linearGradient id="pcn-ds" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                                    <stop offset="45%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                                    <stop offset="45%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                                    <stop offset="55%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                                    <stop offset="55%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                                </linearGradient>
+
+                            </defs>
+                            <circle cx="256" cy="256" r="62" fill="white" />
+                            <path
+                                d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
+                        </svg>
+                    </button>
+                </form>
+
             </div>
- 
 
-            <form class="searchContainer" action="pokemonDetail.html" autocomplete="off">
-                <label>
-                    <input type="search" name="name" class="searchInput" placeholder="Search name or number">
-    
-                </label>
-                <button class="searchButton" type="submit">
-                    <svg width="25" height="25" viewBox="0 0 512 512" fill="url(#pcn-ds)" stroke="#000"
-                stroke-width="3">
-                <defs>
-                    <linearGradient id="pcn-ds" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                        <stop offset="45%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                        <stop offset="45%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
-                        <stop offset="55%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
-                        <stop offset="55%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                    </linearGradient>
+            <div id="left-top-upper"></div>
 
-                </defs>
-                <circle cx="256" cy="256" r="62" fill="white" />
-                <path
-                    d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
-            </svg>
-                </button>
-            </form>
 
-        </div>
 
-        <div id="left-top-upper"></div>
+            <h1 class="detailHeading"><span class="spanHeading">...loading</span></h1>
 
-       
+            <div class="imageContainer">
+                <svg class="pokeballSVG" width="100" height="100" viewBox="0 0 512 512" fill="url(#pcn-ds)"
+                    stroke="#000" stroke-width="3">
+                    <defs>
+                        <linearGradient id="pcn-ds" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                            <stop offset="45%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                            <stop offset="45%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                            <stop offset="55%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+                            <stop offset="55%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+                        </linearGradient>
 
-        <h1 class="detailHeading"><span class="spanHeading">...loading</span></h1>
-
-        <div class="imageContainer">
-            <svg class="pokeballSVG" width="100" height="100" viewBox="0 0 512 512" fill="url(#pcn-ds)" stroke="#000"
-                stroke-width="3">
-                <defs>
-                    <linearGradient id="pcn-ds" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                        <stop offset="45%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                        <stop offset="45%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
-                        <stop offset="55%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
-                        <stop offset="55%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
-                    </linearGradient>
-
-                </defs>
-                <circle cx="256" cy="256" r="62" fill="white" />
-                <path
-                    d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
-            </svg>
-
-        </div>
-
-        <div class="buttonsContainer">
-            <button class="previousPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="20.018" height="18"><path d="M10.018 18v-5h10V5h-10V0L0 8.939 10.018 18z"/></svg>
-            </button>
-            <button class="switchImageButton" onclick="handleSwitchButton">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
-                    <title>ionicons-v5-b</title>
-                    <path d="M320,146s24.36-12-64-12A160,160,0,1,0,416,294"
-                        style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:100px" />
-                    <polyline points="256 58 336 138 256 218"
-                        style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px" />
+                    </defs>
+                    <circle cx="256" cy="256" r="62" fill="white" />
+                    <path
+                        d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
                 </svg>
-            </button>
-            <button class="nextPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="20.018" height="18"><path d="M10.029 5H0v7.967h10.029V18l9.961-9.048L10.029 0v5z"/></svg>
-            </button>
-        </div>
 
-        
-        
-    
+            </div>
 
-        <div class="pokemonStats"></div>
+            <div class="buttonsContainer">
+                <button class="previousPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="20.018" height="18">
+                        <path d="M10.018 18v-5h10V5h-10V0L0 8.939 10.018 18z" />
+                    </svg>
+                </button>
+                <button class="switchImageButton" onclick="handleSwitchButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                        <title>ionicons-v5-b</title>
+                        <path d="M320,146s24.36-12-64-12A160,160,0,1,0,416,294"
+                            style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:100px" />
+                        <polyline points="256 58 336 138 256 218"
+                            style="fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px" />
+                    </svg>
+                </button>
+                <button class="nextPokemon"><svg xmlns="http://www.w3.org/2000/svg" width="20.018" height="18">
+                        <path d="M10.029 5H0v7.967h10.029V18l9.961-9.048L10.029 0v5z" />
+                    </svg>
+                </button>
+            </div>
 
-        <div class="pokemonDescription"></div>
-        <div class="pokemonDescription2"></div>
+
+
+
+            <button class="playButton">cry</button>
+            <audio class="cry" src=""></audio>
+            <div class="pokemonStats"></div>
+
+            <div class="pokemonDescription"></div>
+            <div class="pokemonDescription2"></div>
         </div>
 
         <div class="rightContainer">
-        <div class="topRightContainer">
-            <div id="right-top-upper"></div>
+            <div class="topRightContainer">
+                <div id="right-top-upper"></div>
+            </div>
+            <div class="pokemonSpecs"></div>
+
+
         </div>
-        <div class="pokemonSpecs"></div>
-        </div>  
 
 
     </div>
