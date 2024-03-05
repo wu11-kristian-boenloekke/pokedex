@@ -18,9 +18,13 @@ async function fetchPokemonByName() {
 
         const imageContainer = document.querySelector(".imageContainer")
         imageContainer.innerHTML = ` 
-            <img class="pokemonImage frontImage" src="${data.sprites.front_default}">
+            <img class="pokemonImage frontImage" id="shake" src="${data.sprites.front_default}">
             <img class="pokemonImage backImage" src="${data.sprites.back_default}">
-            
+            <button class="playCry">Cry: <i class="fa fa-play" aria-hidden="true"></i></button>
+            <audio class="cry" src=""></audio>
+            <ul class="ul__type">
+            ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type shimmer"  >${elem.type.name}</a>`).join("")}
+            </ul>
          `;
          
          const pokemonStats = document.querySelector(".pokemonStats");
@@ -61,22 +65,37 @@ async function fetchPokemonByName() {
             <ul class="movesContainer">
             ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
             </ul>
-            </div> 
-
-            
+            </div>   
 
         `;
 
         const audioElement = document.querySelector(".cry");
-        const playButton = document.querySelector(".playButton");
+        const playCryButton = document.querySelector(".playCry");
 
         audioElement.src = data.cries.latest;
         audioElement.type = "audio/ogg";
         
-        playButton.addEventListener("click", () => {
+        playCryButton.addEventListener("click", () => {
                 audioElement.play();
             
         });
+
+       document.querySelector(".playCry").addEventListener("click", startAnimation)
+
+       let playCry = true
+
+        function startAnimation(){
+            const shake = document.querySelector("#shake")
+
+            if (playCry) {
+            shake.style.animation = "shake 0.5s"
+            } else {
+                shake.style.animation = "0s"
+            }
+
+            playCry = !playCry
+            
+        }
 
         
 
@@ -159,13 +178,11 @@ function speakPokemonDetails(data) {
     const firstUtterance = new SpeechSynthesisUtterance(`${pokemonName}`);
     firstUtterance.pitch = 0.5; 
 
-    // Read the first part of the details out loud
     speechSynthesis.speak(firstUtterance);
 
     // Save the current utterance for later reference
     currentUtterance = firstUtterance;
 
-    // Wait for a moment before reading the second part
     setTimeout(() => {
         // Check if the current utterance is still the first one
         if (currentUtterance === firstUtterance) {
@@ -176,7 +193,6 @@ function speakPokemonDetails(data) {
             secondUtterance.pitch = 0.5;
 
 
-            // Read the second part of the details out loud
             speechSynthesis.speak(secondUtterance);
 
             // Clear the current utterance after the second part is read
@@ -184,7 +200,7 @@ function speakPokemonDetails(data) {
                 currentUtterance = null;
             };
         }
-    }, 2500); // Adjust the delay time (in milliseconds) as needed
+    }, 2500);
 }
 
 const nextPokemonButton = document.querySelector('.nextPokemon');
