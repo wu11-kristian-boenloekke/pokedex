@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +10,29 @@
     <link rel="manifest" href="manifest.json">
 
 </head>
-<body>
-    <div class="pokemonType__container">
-        <h1 class="typeHeading">Type: <span class="typeName"></span></h1>
-        <ul class="pokemonsOfType"></ul>
 
-        <ul class="types ul__container"></ul>
-       
-        
+<body>
+    <div class="container">
+        <div class="leftContainer">
+            <div id="left-top-upper"></div>
+            <h1 class="typeHeading">Type: <span class="typeName"></span></h1>
+            <ul class="pokemonsOfType"></ul>
+        </div>
+
+        <div class="rightContainer">
+            <div class="topRightContainer">
+                <div id="right-top-upper"></div>
+                <ul class="types ul__container"></ul>
+            </div>
+        </div>
+    </div>
+
+
     </div>
 
     <script src="pokemonType.js" defer></script>
-    
-    
+
+
 </body>
+
 </html>
-
-

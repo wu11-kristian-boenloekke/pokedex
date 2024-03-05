@@ -20,8 +20,7 @@ async function fetchPokemonByName() {
         imageContainer.innerHTML = ` 
             <img class="pokemonImage frontImage" id="shake" src="${data.sprites.front_default}">
             <img class="pokemonImage backImage" src="${data.sprites.back_default}">
-            <button class="playCry">Cry: <i class="fa fa-play" aria-hidden="true"></i></button>
-            <audio class="cry" src=""></audio>
+            
             <ul class="ul__type">
             ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type shimmer"  >${elem.type.name}</a>`).join("")}
             </ul>
@@ -41,6 +40,8 @@ async function fetchPokemonByName() {
          const pokemonDescription2 = document.querySelector(".pokemonDescription2")
          pokemonDescription2.innerHTML = `<div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name},</li>`).join("")}</div>
          <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
+         <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
+        <audio class="cry" src=""></audio>
          <button class="switchEntryButton">&lt2/2</button>`;
 
 
@@ -53,19 +54,13 @@ async function fetchPokemonByName() {
             </ul>
             </div>
         
-            <div class="specsContainer">    
-            <h2 class="specsHeading">Ability</h2> 
-            <ul class="ul__container">
-            ${data.abilities.map(elem => `<li class="li__ability" >${elem.ability.name}</li>`).join("")}
-            </ul>
-            </div>
 
-            <div class="specsContainer">
+            
             <h2 class="specsHeading">Moves</h2> 
             <ul class="movesContainer">
             ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
             </ul>
-            </div>   
+              
 
         `;
 

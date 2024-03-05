@@ -1,6 +1,10 @@
-.detailContainer {
+.container {
     background-color: rgb(200, 4, 4);
 
+}
+
+.leftContainer{
+    max-width: 25rem;
 }
 
 .backToMenuButton {
@@ -73,6 +77,7 @@
 .pokemonImage {
     width: 200px;
     height: 200px;
+    margin-bottom: 0.5rem;
 
 }
 
@@ -95,13 +100,12 @@
 }
 
 .playCry{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin: 0.2rem;
+   
+    padding: 0;
     background: transparent;
     border: none;
     font-size: 15px;
+    color: #fff;
 }
 
 .buttonsContainer {
@@ -174,6 +178,10 @@ option{
     background-color: #819feb;
     animation: grow ease-in 1s forwards;
 
+}
+
+.descriptionContainer{
+    max-width: 25rem;
 }
 
 .pokemonDescription {
@@ -277,7 +285,7 @@ option{
 
 .li__type {
     padding: 4px;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
     min-width: 6ch;
     cursor: pointer;
     color: #fff;
@@ -300,22 +308,7 @@ option{
 
 }
 
-.movesContainer {
-    border-radius: 3px;
-    border: inset #879a65 3px;
-    height: 105px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background-color: #eceaea;
-    margin-right: 1rem;
-    padding-left: 10px;
-    font-size: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    color: #000;
-    grid-column: 2;
 
-}
 
 #myBtn {
 
@@ -332,6 +325,10 @@ option{
 }
 
 #right-top-upper{
+    display: none;
+}
+
+.movesContainer{
     display: none;
 }
 
@@ -401,51 +398,62 @@ option{
   }
 
 
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-device-width: 898px) {
     body{
         display: flex;
         justify-content: center;
         padding: 3rem;
+        /*background-image: url(/img/pokemonprarie.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;*/
     }
     
-    .detailContainer {
+    .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         border-radius: 10px;
         width: 50rem;
         margin: 3rem;
+       
     }
 
     .leftContainer{
         width: 25rem;
-        border-right: 3px solid #000;
-        
+        border-right: 10px double #000;
         border-radius: 10px;
 
     }
 
-    .topRightContainer{
+    .rightContainer{
+        grid-column: 2;
+        background-color: #fff;
+        border: none;
+       
         
+    }
+
+    .descriptionContainer{
+        grid-column: 2;
+        margin-top: 4rem;
+    }
+
+    .topRightContainer{
+        background-color:  rgb(200, 4, 4);
+        height: 37rem;
+        border-radius: 0 0 10px 10px; 
+ 
     }
 
     #right-top-upper {
         margin-top: 3rem;
         display: block;
-        border-radius: 5%;
         width: 100%;
         height: 3rem;
         margin-bottom: 0.5rem;
-        background: black;
+        background: #fff;
         transform: rotateY(180deg);
-        clip-path: polygon(0% 95%,
-                /* top left */
-                15% 95%,
-                33% 45%,
-                100% 45%,
-                100% 50%,
-                33% 50%,
-                15% 100%,
-                0% 100%);
+        clip-path: polygon(0% 95%, 0 0, 38% 0, 100% 0, 100% 50%, 33% 50%, 15% 100%, 0% 100%);
+        
     }
 
     #left-top-upper {
@@ -465,5 +473,24 @@ option{
                 15% 100%,
                 0% 100%);
     }
+
+    .movesContainer {
+        border-radius: 3px;
+        border: inset #879a65 3px;
+        height: 105px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #eceaea;
+        margin: 1rem;
+        padding-left: 10px;
+        font-size: 15px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        color: #000;
+        grid-column: 2;
+    
+    }
+
+    
 
 }
