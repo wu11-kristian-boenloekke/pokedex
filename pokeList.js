@@ -1,9 +1,7 @@
 import { getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
 //import { getPokemonList } from "./api.js"
 
-function inputToLowerCase(input){
-    input.value = input.value.toLowerCase()
-}
+
 
 
 const params = new URLSearchParams(location.search)
@@ -32,6 +30,11 @@ stroke-width="3">
 <path
     d="M414.39,97.61A224,224,0,1,0,97.61,414.39,224,224,0,1,0,414.39,97.61ZM256,336a80,80,0,1,1,80-80A80.09,80.09,0,0,1,256,336Z" />
 </svg>`;
+
+function inputToLowerCase(input){
+    input.value = input.value.toLowerCase()
+}
+inputToLowerCase()
 
 async function getPokemonList() {
 
