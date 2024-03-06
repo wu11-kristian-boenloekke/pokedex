@@ -9,15 +9,15 @@ async function fetchPokemonByName() {
 
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/` + URL.get("name"));
         if (response.status === 200) {
-        const data = await response.json();
-        console.log(data);
+            const data = await response.json();
+            console.log(data);
 
-        const heading = document.querySelector(".detailHeading")
-        heading.innerHTML = `<h1 class="detailUppercase detailH1">${data.name} </h1>
+            const heading = document.querySelector(".detailHeading")
+            heading.innerHTML = `<h1 class="detailUppercase detailH1">${data.name} </h1>
         <h2 class="detailUppercase">no. ${data.id}</h2>`
 
-        const imageContainer = document.querySelector(".imageContainer")
-        imageContainer.innerHTML = ` 
+            const imageContainer = document.querySelector(".imageContainer")
+            imageContainer.innerHTML = ` 
             <img class="pokemonImage frontImage" id="shake" src="${data.sprites.front_default}">
             <img class="pokemonImage backImage" src="${data.sprites.back_default}">
             
@@ -25,29 +25,29 @@ async function fetchPokemonByName() {
             ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type shimmer"  >${elem.type.name}</a>`).join("")}
             </ul>
          `;
-         
-         const pokemonStats = document.querySelector(".pokemonStats");
-         const statsList = data.stats.map(stat =>  `
+
+            const pokemonStats = document.querySelector(".pokemonStats");
+            const statsList = data.stats.map(stat => `
              <li class="statName">${stat.stat.name}</li>
              <li class="statValue">
                  <div class="statBar" style="width: ${stat.base_stat}px;"></div> 
              </li>`
-         ).join("");
-         
-     
-         pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
+            ).join("");
 
-         const pokemonDescription2 = document.querySelector(".pokemonDescription2")
-         pokemonDescription2.innerHTML = `
-         <div class="abilities"> Abilities: ${data.abilities.map(elem =>`<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
+
+            pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
+
+            const pokemonDescription2 = document.querySelector(".pokemonDescription2")
+            pokemonDescription2.innerHTML = `
+         <div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
          <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
          <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
          <audio class="cry" src=""></audio>
          <button class="switchEntryButton">&lt2/2</button>`;
 
 
-        const pokemonSpecs = document.querySelector(".pokemonSpecs");
-        pokemonSpecs.innerHTML = `
+            const pokemonSpecs = document.querySelector(".pokemonSpecs");
+            pokemonSpecs.innerHTML = `
             <div class="specsContainer">
             <h2 class="specsHeading" >Type</h2> 
             <ul class="ul__container">
@@ -65,51 +65,49 @@ async function fetchPokemonByName() {
 
         `;
 
-        const audioElement = document.querySelector(".cry");
-        const playCryButton = document.querySelector(".playCry");
+            const audioElement = document.querySelector(".cry");
+            const playCryButton = document.querySelector(".playCry");
 
-        audioElement.src = data.cries.latest;
-        audioElement.type = "audio/ogg";
-        
-        playCryButton.addEventListener("click", () => {
+            audioElement.src = data.cries.latest;
+            audioElement.type = "audio/ogg";
+
+            playCryButton.addEventListener("click", () => {
                 audioElement.play();
-            
-        });
 
-       document.querySelector(".playCry").addEventListener("click", initAnimation)
+            });
 
-       let playCry = true
+            document.querySelector(".playCry").addEventListener("click", initAnimation)
 
-        function initAnimation(){
-            const shake = document.querySelector("#shake")
 
-            if (playCry) {
-            shake.style.animation = "shake 0.5s"
-            } else {
-                shake.style.animation = "0s"
+            function initAnimation() {
+                const shake = document.querySelector("#shake")
+                shake.style.animation = "shake 0.5s";
+
+                // Listen for the end of the animation to remove the animation property
+                shake.addEventListener("animationend", () => {
+                    shake.style.animation = "none";
+                })
             }
-            
+
+
+
+            speakPokemonDetails(data);
+
+
+            document.querySelector('.switchImageButton').addEventListener('click', handleSwitchButton);
+            document.querySelector(".switchEntryButton").addEventListener("click", handleEntryButton);
+
+
+        } else {
+            // Display error message when response status is not 200
+            console.error(`Error fetching data. Status Code: ${response.status}`);
+            const errorMessage = document.createElement('p');
+            errorMessage.innerText = '...not found. Try again';
+            document.querySelector('.detailHeading .spanHeading').textContent = ''; // Clear previous content
+            document.querySelector('.detailHeading .spanHeading').appendChild(errorMessage);
         }
 
-        
 
-        speakPokemonDetails(data);
-       
-
-        document.querySelector('.switchImageButton').addEventListener('click', handleSwitchButton);
-      document.querySelector(".switchEntryButton").addEventListener("click", handleEntryButton);
-       
-
-    } else {
-        // Display error message when response status is not 200
-        console.error(`Error fetching data. Status Code: ${response.status}`);
-        const errorMessage = document.createElement('p');
-        errorMessage.innerText = '...not found. Try again';
-        document.querySelector('.detailHeading .spanHeading').textContent = ''; // Clear previous content
-        document.querySelector('.detailHeading .spanHeading').appendChild(errorMessage);
-    }
-
-    
 
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -133,7 +131,7 @@ function handleSwitchButton() {
         backImage.style.display = 'none';
     }
 
-    
+
     switchImageButton = !switchImageButton;
 }
 
@@ -159,7 +157,7 @@ let currentUtterance = null;
 
 function speakPokemonDetails(data) {
 
-    
+
     const pokemonName = data.name;
     const abilities = data.abilities.map(ability => ability.ability.name).join(', ');
 
@@ -170,7 +168,7 @@ function speakPokemonDetails(data) {
 
     // Create a new speech synthesis utterance for the first part
     const firstUtterance = new SpeechSynthesisUtterance(`${pokemonName}`);
-    firstUtterance.pitch = 0.5; 
+    firstUtterance.pitch = 0.5;
 
     speechSynthesis.speak(firstUtterance);
 
@@ -181,7 +179,7 @@ function speakPokemonDetails(data) {
         // Check if the current utterance is still the first one
         if (currentUtterance === firstUtterance) {
 
-            
+
 
             const secondUtterance = new SpeechSynthesisUtterance(`${abilities}`);
             secondUtterance.pitch = 0.5;
@@ -228,13 +226,13 @@ function updatePokemonIndex(increment) {
 async function fetchNextOrPreviousPokemon(currentPokemonName, increment) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${currentPokemonName}`);
-        
-            const data = await response.json();
-            const newPokemonId = data.id + increment;
-            updateURLAndFetch(newPokemonId);
-        
-            await fetchPokemonSpecies(newPokemonId);
-        
+
+        const data = await response.json();
+        const newPokemonId = data.id + increment;
+        updateURLAndFetch(newPokemonId);
+
+        await fetchPokemonSpecies(newPokemonId);
+
     } catch (error) {
         console.error("Error fetching data:", error);
     }
@@ -261,20 +259,20 @@ async function fetchPokemonSpecies() {
         (element) => element.language.name === "en"
     )
 
-    const flavorTextEntry = 
-        filteredFlavorTextEntries.length > 0 ? filteredFlavorTextEntries[0]: {}
-        console.log(flavorTextEntry);
-    
-        const pokemonDescription = document.querySelector(".pokemonDescription");
-        
-      
-        pokemonDescription.innerHTML = `<div class="entry1">${flavorTextEntry.flavor_text}</div>
+    const flavorTextEntry =
+        filteredFlavorTextEntries.length > 0 ? filteredFlavorTextEntries[0] : {}
+    console.log(flavorTextEntry);
+
+    const pokemonDescription = document.querySelector(".pokemonDescription");
+
+
+    pokemonDescription.innerHTML = `<div class="entry1">${flavorTextEntry.flavor_text}</div>
         <button class="switchEntryButton2">1/2&gt</button>`;
-        
-        
-        document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
-       
-    
+
+
+    document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
+
+
 }
 
 fetchPokemonSpecies()
