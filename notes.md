@@ -36,3 +36,19 @@ renderPokemons()
 
 
 https://mkhan11417.medium.com/pokemon-javascript-website-challenge-fceea183d8a8
+
+
+
+filtrer og include search function
+
+function filterPokemons(pokemons) {
+    return.pokemons.filter(filterCallback)  // filter filtrerer array som true eller false
+}
+
+function filterCallback(pokemon) {
+    return pokemon.name.includes(searchParams) //includes returnerer true eller false
+}
+
+function renderPokemons(pokemons) {
+
+}

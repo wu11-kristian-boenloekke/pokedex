@@ -1,6 +1,9 @@
 import { getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
 //import { getPokemonList } from "./api.js"
 
+function inputToLowerCase(input){
+    input.value = input.value.toLowerCase()
+}
 
 
 const params = new URLSearchParams(location.search)

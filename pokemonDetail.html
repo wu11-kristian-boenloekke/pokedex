@@ -29,7 +29,7 @@
 
                 <form class="searchContainer" action="pokemonDetail.html" autocomplete="off">
                     <label>
-                        <input type="search" name="name" class="searchInput" placeholder="Search name or number">
+                        <input type="search" name="name" class="searchInput" placeholder="Search name or number" oninput="inputToLowerCase(this)">
 
                     </label>
                     <button class="searchButton" type="submit">
@@ -101,9 +101,6 @@
                     </svg>
                 </button>
             </div>
-
-
-
 
 
             <div class="pokemonStats"></div>

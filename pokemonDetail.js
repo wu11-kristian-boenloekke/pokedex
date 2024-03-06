@@ -1,6 +1,10 @@
 const URL = new URLSearchParams(location.search);
 const speechSynthesis = window.speechSynthesis;
 
+function inputToLowerCase(input){
+    input.value = input.value.toLowerCase()
+}
+
 
 async function fetchPokemonByName() {
     try {
