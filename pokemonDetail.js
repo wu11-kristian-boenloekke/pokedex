@@ -1,4 +1,4 @@
-const URL = new URLSearchParams(window.location.search);
+const URL = new URLSearchParams(location.search);
 const speechSynthesis = window.speechSynthesis;
 
 
@@ -35,13 +35,14 @@ async function fetchPokemonByName() {
          ).join("");
          
      
-         pokemonStats.innerHTML = `</select><ul class="ul__stats">${statsList}</ul>`;
+         pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
 
          const pokemonDescription2 = document.querySelector(".pokemonDescription2")
-         pokemonDescription2.innerHTML = `<div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name},</li>`).join("")}</div>
+         pokemonDescription2.innerHTML = `
+         <div class="abilities"> Abilities: ${data.abilities.map(elem =>`<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
          <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
          <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
-        <audio class="cry" src=""></audio>
+         <audio class="cry" src=""></audio>
          <button class="switchEntryButton">&lt2/2</button>`;
 
 
@@ -75,11 +76,11 @@ async function fetchPokemonByName() {
             
         });
 
-       document.querySelector(".playCry").addEventListener("click", startAnimation)
+       document.querySelector(".playCry").addEventListener("click", initAnimation)
 
        let playCry = true
 
-        function startAnimation(){
+        function initAnimation(){
             const shake = document.querySelector("#shake")
 
             if (playCry) {
@@ -87,8 +88,6 @@ async function fetchPokemonByName() {
             } else {
                 shake.style.animation = "0s"
             }
-
-            playCry = !playCry
             
         }
 

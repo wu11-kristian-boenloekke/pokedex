@@ -1,7 +1,7 @@
 .listContainer{
-    width:fit-content;
+    width: 100%;
     background-color: rgb(200, 4, 4);
-    padding: 1rem 0;
+    
 }
 
 .listHeading{
@@ -68,14 +68,17 @@
 .offset{
     display: flex;
     justify-content: center;
-    margin: 0.5rem 0 0 1rem;
-    gap: 0.5rem;
-    padding-right: 2.7rem;
+    gap: 0.3rem;
+    margin: 1rem 1.3rem;
+    padding-right: 2rem;
     color: #fff;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .offset a{
     color: #fff;
+    text-decoration: none;
 }
 
 @media only screen and (min-device-width: 768px) {

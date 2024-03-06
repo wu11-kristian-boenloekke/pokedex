@@ -1,9 +1,9 @@
-import {getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
+import { getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
 //import { getPokemonList } from "./api.js"
 
 
 
-const params = new URLSearchParams(window.location.search)
+const params = new URLSearchParams(location.search)
 
 const offset = parseInt(params.get("offset")) || 0;
 const nextPage = document.querySelector(".nextPage");
@@ -36,7 +36,7 @@ async function getPokemonList() {
     const data = await response.json() //returnerer json objekt, med resolved liste af pokemoner
     
     return data
-}
+} 
 
  
 async function renderPokemons() {

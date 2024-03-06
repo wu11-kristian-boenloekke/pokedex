@@ -1,6 +1,11 @@
 .container {
     background-color: rgb(200, 4, 4);
+    width: 100%;
 
+}
+
+.leftContainer{
+    width: 100%;
 }
 
 .backToMenuButton {
@@ -412,7 +417,7 @@ option{
     }
 
     .leftContainer{
-        width: 25rem;
+       
         border-right: 10px double #000;
         border-radius: 10px;
 
