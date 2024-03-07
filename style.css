@@ -5,6 +5,7 @@
 @import url("css/pokemonType.css");
 @import url("css/typeColors.css");
 
+
 body{
     background-color: #fff;
     margin: 0;
@@ -18,6 +19,11 @@ body{
 
 ul{
     list-style: none;
+}
+
+button{
+    font-family: 'Oxanium', cursive;
+
 }
 
 

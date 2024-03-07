@@ -5,6 +5,12 @@ function inputToLowerCase(input){
     input.value = input.value.toLowerCase()
 }
 
+function showDropdown() {
+    document.getElementById("showDropdown").classList.toggle("show")
+}
+
+
+
 
 async function fetchPokemonByName() {
     try {
