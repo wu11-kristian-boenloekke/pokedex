@@ -79,7 +79,7 @@
 .pokemonImage {
     width: 200px;
     height: 200px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 
 }
 
@@ -126,7 +126,7 @@
     border: none;
 }
 
-.container2{
+.selectContainer{
     position:relative;
     margin-top: 2rem;
     
@@ -141,9 +141,12 @@ select{
     font-family: 'Oxanium', cursive;
     font-size: 13px;
     padding: 3px;
-    width: 91.5%;
+    width: 92%;
 }
 
+select:focus {
+    outline: none;
+}
 
 .pokemonStats {
     background-color: #eceaea;
@@ -189,7 +192,7 @@ select{
 .movesContainer {
     border-radius: 3px;
     border: inset #879a65 3px;
-    height: 8rem;
+    height: 8.2rem;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #eceaea;
@@ -271,7 +274,7 @@ select{
 }
 
 
-.pokemonSpecs {
+/*.pokemonSpecs {
     background: linear-gradient(14deg, rgb(165, 205, 83) 60%, rgb(193, 217, 144) 65%);
     margin: 2rem 0.5rem 2rem;
     padding-bottom: 1rem;
@@ -281,7 +284,7 @@ select{
     border-radius: 3px;
     border: inset #879a65 3px;
 
-}
+} 
 
 .specsContainer {
     display: grid;
@@ -294,7 +297,7 @@ select{
     font-size: 20px;
     grid-column: 1;
 
-}
+} */
 
 .ul__container {
     display: flex;

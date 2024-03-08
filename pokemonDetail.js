@@ -5,13 +5,6 @@ function inputToLowerCase(input){
     input.value = input.value.toLowerCase()
 }
 
-function showDropdown() {
-    document.getElementById("showDropdown").classList.toggle("show")
-}
-
-
-
-
 async function fetchPokemonByName() {
     try {
 
@@ -23,42 +16,42 @@ async function fetchPokemonByName() {
             console.log(data);
 
             const heading = document.querySelector(".detailHeading")
-            heading.innerHTML = `<h1 class="detailUppercase detailH1">${data.name} </h1>
-        <h2 class="detailUppercase">no. ${data.id}</h2>`
+            heading.innerHTML = `
+                <h1 class="detailUppercase detailH1">${data.name} </h1>
+                <h2 class="detailUppercase">no. ${data.id}</h2>`;
 
             const imageContainer = document.querySelector(".imageContainer")
             imageContainer.innerHTML = ` 
-            <img class="pokemonImage frontImage" id="shake" src="${data.sprites.front_default}">
-            <img class="pokemonImage backImage" src="${data.sprites.back_default}">
+                <img class="pokemonImage frontImage" id="shake" src="${data.sprites.front_default}">
+                <img class="pokemonImage backImage" src="${data.sprites.back_default}">
             
-            <ul class="ul__type">
-            ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type shimmer"  >${elem.type.name}</a>`).join("")}
-            </ul>
-         `;
+                <ul class="ul__type">
+                ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type shimmer"  >${elem.type.name}</a>`).join("")}
+                </ul>`;
 
             const pokemonStats = document.querySelector(".pokemonStats");
             const statsList = data.stats.map(stat => `
-             <li class="statName">${stat.stat.name}</li>
-             <li class="statValue">
-                 <div class="statBar" style="width: ${stat.base_stat}px;"></div> 
-             </li>`
-            ).join("");
+                <li class="statName">${stat.stat.name}</li>
+                <li class="statValue">
+                     <div class="statBar" style="width: ${stat.base_stat}px;"></div> 
+                 </li>`).join("");
 
 
             pokemonStats.innerHTML = `<ul class="ul__stats">${statsList}</ul>`;
 
             const pokemonDescription2 = document.querySelector(".pokemonDescription2")
             pokemonDescription2.innerHTML = `
-         <div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
-         <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
-         <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
-         <audio class="cry" src=""></audio>
-         <button class="switchEntryButton">&lt2/2</button>`;
+                <div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
+                <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
+                <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
+                <audio class="cry" src=""></audio>
+                <button class="switchEntryButton">&lt2/2</button>`;
 
             const pokemonMoves = document.querySelector(".pokemonMoves")
-            pokemonMoves.innerHTML = `<ul class="movesContainer">
-            ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
-            </ul>`;
+            pokemonMoves.innerHTML = `
+                <ul class="movesContainer">
+                ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
+                </ul>`;
             
 
             const audioElement = document.querySelector(".cry");
@@ -95,7 +88,7 @@ async function fetchPokemonByName() {
 
 
         } else {
-            // Display error message when response status is not 200
+            
             console.error(`Error fetching data. Status Code: ${response.status}`);
             const errorMessage = document.createElement('p');
             errorMessage.innerText = '...not found. Try again';
@@ -112,12 +105,11 @@ async function fetchPokemonByName() {
 
 fetchPokemonByName()
 
+
 function toggleStatsAndMoves(){
     const select = document.getElementById("select").value
     const pokemonStats = document.querySelector(".pokemonStats")
     const pokemonMoves = document.querySelector(".pokemonMoves")
-
-    console.log("Select value:", select);
     
     if (select === "stats") {
         pokemonStats.style.display = "block"
