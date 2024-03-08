@@ -128,37 +128,19 @@
 .container2{
     position:relative;
     margin-top: 2rem;
-}
-
-select{
-    margin: 0 1rem 5px 1rem;
-    position: absolute;
-    bottom: 100%;
-}
-
-.dropdown{
-    padding: 0 1rem;
-    position: absolute;
-    bottom: 90%;
     
 }
 
-.dropdown button{
-    padding: 0;
-    margin: 0;
-}
-
-.dropdownContent {
-    display: none;
+select{
+    margin: 0 1rem;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 5rem;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-.show {
-    display:block;
+    bottom: 100%;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Oxanium', cursive;
+    font-size: 13px;
+    padding: 3px;
+    width: 92%;
 }
 
 
@@ -197,6 +179,10 @@ select{
     background-color: #819feb;
     animation: grow ease-in 1s;
 
+}
+
+.pokemonMoves {
+    display: none;
 }
 
 

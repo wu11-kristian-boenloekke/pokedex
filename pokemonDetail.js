@@ -55,7 +55,10 @@ async function fetchPokemonByName() {
          <audio class="cry" src=""></audio>
          <button class="switchEntryButton">&lt2/2</button>`;
 
-
+            const pokemonMoves = document.querySelector(".pokemonMoves")
+            pokemonMoves.innerHTML = `<ul class="movesContainer">
+            ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
+            </ul>`
             const pokemonSpecs = document.querySelector(".pokemonSpecs");
             pokemonSpecs.innerHTML = `
             <div class="specsContainer">
@@ -68,9 +71,7 @@ async function fetchPokemonByName() {
 
             
             <h2 class="specsHeading">Moves</h2> 
-            <ul class="movesContainer">
-            ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
-            </ul>
+            
               
 
         `;
@@ -125,6 +126,20 @@ async function fetchPokemonByName() {
 }
 
 fetchPokemonByName()
+
+function toggleStatsAndMoves(){
+    const select = document.getElementById("select").value
+    const pokemonStats = document.querySelector(".pokemonStats")
+    const pokemonMoves = document.querySelector(".pokemonMoves")
+
+    if (select === "stats") {
+        pokemonStats.style.display = "block"
+        pokemonMoves.style.display = "none"
+    } else if (select === "moves") {
+        pokemonStats.style.display = "none"
+        pokemonMoves.style.display = "block"
+    }
+}
 
 
 let switchImageButton = true;

@@ -104,21 +104,13 @@
             </div>
 
             <div class="container2">
-                <!--menu class="dropdown">
-                    <button onclick="showDropdown()"> <span>Stats</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="down" width="12" height="9" viewBox="0 0 12 9">
-                            <polygon points="1 0, 11 0, 6 8"></polygon>
-                        </svg>
-                    </button>
-                    <div id="showDropdown" class="dropdownContent">
-                        <span>Moves</span>
-                    </div>
-                </menu-->
-                <select name="" id="">
+                
+                <select name="" id="select" onchange="toggleStatsAndMoves()">
                     <option value="stats">Stats</option>
                     <option value="moves">Moves</option>
                 </select>
                 <div class="pokemonStats"></div>
+                <div class="pokemonMoves"></div>
             </div>
         </div>
 
@@ -144,6 +136,17 @@
 
 
     </div>
+
+    <!--menu class="dropdown">
+                    <button onclick="showDropdown()"> <span>Stats</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="down" width="12" height="9" viewBox="0 0 12 9">
+                            <polygon points="1 0, 11 0, 6 8"></polygon>
+                        </svg>
+                    </button>
+                    <div id="showDropdown" class="dropdownContent">
+                        <span>Moves</span>
+                    </div>
+                </menu-->
 
 
     <script src="api.js" defer type="module"></script>
