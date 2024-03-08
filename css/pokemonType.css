@@ -1,5 +1,6 @@
 .pokemonType__container{
     background-color: rgb(200, 4, 4);
+    height: 100vh;
 }
 
 .typeHeading{
@@ -35,10 +36,25 @@
      
 }
 
+.li__type2 {
+    padding: 4px;
+    margin: 0.5rem 0;
+
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 50px;
+    text-align: center;
+   
+}
+
 .ul__container{
     margin: 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 

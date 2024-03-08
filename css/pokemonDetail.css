@@ -108,22 +108,29 @@
     justify-content: center;
     gap: 0.2rem;
     margin: 0.5rem;
+    align-items: center;
 }
 
 .switchImageButton {
     height: fit-content;
     background: none;
     border: none;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .nextPokemon {
     background-color: transparent;
     border: none;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 .previousPokemon {
     background-color: transparent;
     border: none;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 .selectContainer{
@@ -141,7 +148,7 @@ select{
     font-family: 'Oxanium', cursive;
     font-size: 13px;
     padding: 3px;
-    width: 92%;
+    width: 91%;
 }
 
 select:focus {
@@ -474,7 +481,7 @@ select:focus {
  
     }
 
-    #right-top-upper {
+    .clipPath__right {
         margin-top: 3rem;
         display: block;
         width: 100%;
@@ -486,7 +493,7 @@ select:focus {
         
     }
 
-    #left-top-upper {
+    .clipPath__left {
         display: block;
         border-radius: 5%;
         width: 100%;

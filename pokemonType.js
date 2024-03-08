@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             pokemonsOfType.appendChild(typePokemon);
         });
 
-        async function getPokemonsByType(type) {
+        async function getPokemonTypes(type) {
             const response = await fetch("https://pokeapi.co/api/v2/type")
             const data = await response.json()
             return data
@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         async function renderTypes() {
     
-            const typesData = await getPokemonsByType()
+            const typesData = await getPokemonTypes()
             const listOfTypes = typesData.results; 
     
             listOfTypes.forEach(function (data) {
                 let type = document.createElement("li")
                 type.className = data.name.toLowerCase();
-                type.innerHTML = `<a href="pokemonType.html?type=${data.name}" class="li__type" >
+                type.innerHTML = `<a href="pokemonType.html?type=${data.name}" class="li__type2" >
                 ${data.name}
                 </a>` 
     
