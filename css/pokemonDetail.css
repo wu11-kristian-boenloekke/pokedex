@@ -140,7 +140,7 @@ select{
     font-family: 'Oxanium', cursive;
     font-size: 13px;
     padding: 3px;
-    width: 92%;
+    width: 91.5%;
 }
 
 
@@ -183,6 +183,23 @@ select{
 
 .pokemonMoves {
     display: none;
+}
+
+.movesContainer {
+    border-radius: 3px;
+    border: inset #879a65 3px;
+    height: 8rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #eceaea;
+    margin: 1rem;
+    padding-left: 10px;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #000;
+    grid-column: 2;
+
 }
 
 
@@ -340,9 +357,6 @@ select{
     display: none;
 }
 
-.movesContainer{
-    display: none;
-}
 
 .pokeballSVG {
     animation: gelatine 0.5s infinite linear;
@@ -486,22 +500,7 @@ select{
                 0% 100%);
     }
 
-    .movesContainer {
-        border-radius: 3px;
-        border: inset #879a65 3px;
-        height: 105px;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        background-color: #eceaea;
-        margin: 1rem;
-        padding-left: 10px;
-        font-size: 15px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        color: #000;
-        grid-column: 2;
     
-    }
 
     
 

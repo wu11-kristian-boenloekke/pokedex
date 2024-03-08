@@ -58,23 +58,8 @@ async function fetchPokemonByName() {
             const pokemonMoves = document.querySelector(".pokemonMoves")
             pokemonMoves.innerHTML = `<ul class="movesContainer">
             ${data.moves.map(elem => `<li >${elem.move.name}</li>`).join("")}
-            </ul>`
-            const pokemonSpecs = document.querySelector(".pokemonSpecs");
-            pokemonSpecs.innerHTML = `
-            <div class="specsContainer">
-            <h2 class="specsHeading" >Type</h2> 
-            <ul class="ul__container">
-            ${data.types.map(elem => `<a href="pokemonType.html?type=${elem.type.name}" class="${elem.type.name.toLowerCase()} li__type"  >${elem.type.name}</a>`).join("")}
-            </ul>
-            </div>
-        
-
+            </ul>`;
             
-            <h2 class="specsHeading">Moves</h2> 
-            
-              
-
-        `;
 
             const audioElement = document.querySelector(".cry");
             const playCryButton = document.querySelector(".playCry");
@@ -132,6 +117,8 @@ function toggleStatsAndMoves(){
     const pokemonStats = document.querySelector(".pokemonStats")
     const pokemonMoves = document.querySelector(".pokemonMoves")
 
+    console.log("Select value:", select);
+    
     if (select === "stats") {
         pokemonStats.style.display = "block"
         pokemonMoves.style.display = "none"
