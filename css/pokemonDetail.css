@@ -55,7 +55,7 @@
 
 .detailHeading {
 
-    height: 5rem;
+    height: 4.5rem;
     background-color: #000;
     display: flex;
     align-items: center;
@@ -115,7 +115,7 @@
     height: fit-content;
     background: none;
     border: none;
-    font-size: 25px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -233,6 +233,7 @@ select:focus {
     min-height: 7rem;
     position: relative;
     display: none;
+    line-height: 1.5rem;
 
 }
 
@@ -276,9 +277,7 @@ select:focus {
     
 }
 
-.descritptionText {
-    animation: typing 3.5s steps(40, end);
-}
+
 
 
 /*.pokemonSpecs {
@@ -360,13 +359,7 @@ select:focus {
     border: none;
 }
 
-#left-top-upper{
-    display: none;
-}
 
-#right-top-upper{
-    display: none;
-}
 
 
 .pokeballSVG {
@@ -450,7 +443,7 @@ select:focus {
         grid-template-columns: 1fr 1fr;
         border-radius: 10px;
         width: 50rem;
-        margin: 3rem;
+        
        
     }
 
@@ -465,13 +458,7 @@ select:focus {
         grid-column: 2;
         background-color: #fff;
         border: none;
-       
         
-    }
-
-    .descriptionContainer{
-        grid-column: 2;
-        margin-top: 4rem;
     }
 
     .topRightContainer{
@@ -479,6 +466,18 @@ select:focus {
         height: 37rem;
         border-radius: 0 0 10px 10px; 
  
+    }
+
+    .descriptionContainer{
+        margin-top: 5rem;   
+    }
+
+    .pokemonDescription{
+        min-height: 10rem;
+    }
+
+    .pokemonDescription2{
+        min-height: 10rem;
     }
 
     .clipPath__right {
@@ -509,10 +508,6 @@ select:focus {
                 33% 50%,
                 15% 100%,
                 0% 100%);
-    }
-
-    
-
-    
+    }   
 
 }

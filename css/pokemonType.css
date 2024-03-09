@@ -15,6 +15,8 @@
     
 }
 
+
+
 .pokemonsOfType{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -31,31 +33,45 @@
 }
 
 .types{
-    
     padding: 1rem 0;
+    text-align: center;
+    border: 2px inset #9aa28b ;
+    background: linear-gradient(14deg, rgb(165, 205, 83) 60%, rgb(193, 217, 144) 65%);
+   
      
 }
 
 .li__type2 {
-    padding: 4px;
     margin: 0.5rem 0;
-
     cursor: pointer;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
-    font-weight: 800;
-    border-radius: 50px;
-    text-align: center;
-   
+    font-weight: 600;
+    
+      
 }
 
 .ul__container{
+    padding: 1rem;
     margin: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+
+@media only screen and (min-device-width: 898px) {
+
+    .clipPath__type{
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .pokemonsOfType{
+        height: 23rem;
+    }
+
+}
 
 

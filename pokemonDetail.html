@@ -94,6 +94,15 @@
                     <i class="fa-solid fa-caret-right"></i>
                 </button>
             </div>
+            <div class="selectContainer">
+                
+                <select name="" id="select" onchange="toggleStatsAndMoves()">
+                    <option value="stats">Stats</option>
+                    <option value="moves">Moves</option>
+                </select>
+                <div class="pokemonStats"></div>
+                <div class="pokemonMoves"></div>
+            </div>
 
            
         </div>
@@ -103,15 +112,7 @@
             <div class="topRightContainer">
                 <div class="clipPath__right"></div>
 
-                <div class="selectContainer">
                 
-                    <select name="" id="select" onchange="toggleStatsAndMoves()">
-                        <option value="stats">Stats</option>
-                        <option value="moves">Moves</option>
-                    </select>
-                    <div class="pokemonStats"></div>
-                    <div class="pokemonMoves"></div>
-                </div>
                 <div class="descriptionContainer">
                     <div class="pokemonDescription"></div>
                     <div class="pokemonDescription2"></div>

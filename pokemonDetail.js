@@ -41,7 +41,7 @@ async function fetchPokemonByName() {
 
             const pokemonDescription2 = document.querySelector(".pokemonDescription2")
             pokemonDescription2.innerHTML = `
-                <div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name}</li>`).join(",")}</div>
+                <div class="abilities"> Abilities: ${data.abilities.map(elem => `<li class="abilities__li">${elem.ability.name}</li>`).join("|")}</div>
                 <div> Weight: ${data.weight}</div> <div> Height: ${data.height}</div>
                 <button class="playCry">Cry: <i class="fas fa-volume-up" aria-hidden="true"></i></button>
                 <audio class="cry" src=""></audio>
@@ -106,6 +106,32 @@ async function fetchPokemonByName() {
 fetchPokemonByName()
 
 
+async function fetchPokemonSpecies() {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/` + URL.get("name"));
+    const data = await response.json()
+
+    const filteredFlavorTextEntries = data.flavor_text_entries.filter(
+        (element) => element.language.name === "en"
+    )
+
+    const flavorTextEntry =
+        filteredFlavorTextEntries.length > 0 ? filteredFlavorTextEntries[0] : {}
+    console.log(flavorTextEntry);
+
+    const pokemonDescription = document.querySelector(".pokemonDescription");
+
+
+    pokemonDescription.innerHTML = `<div class="entry1">${flavorTextEntry.flavor_text}</div>
+        <button class="switchEntryButton2">1/2&gt</button>`;
+
+
+    document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
+
+}
+
+fetchPokemonSpecies()
+
+
 function toggleStatsAndMoves(){
     const select = document.getElementById("select").value
     const pokemonStats = document.querySelector(".pokemonStats")
@@ -164,7 +190,7 @@ function speakPokemonDetails(data) {
 
     const pokemonName = data.name;
     const abilities = data.abilities.map(ability => ability.ability.name).join(', ');
-
+    
     // Clear the existing speech synthesis queue
     if (currentUtterance) {
         speechSynthesis.cancel();
@@ -197,7 +223,10 @@ function speakPokemonDetails(data) {
             };
         }
     }, 2500);
+
 }
+
+
 
 const nextPokemonButton = document.querySelector('.nextPokemon');
 const previousPokemonButton = document.querySelector('.previousPokemon');
@@ -248,42 +277,7 @@ function updateURLAndFetch(newValue) {
     fetchPokemonByName();
     fetchPokemonSpecies();
 
-
 }
-
-fetchPokemonByName();
-
-
-
-async function fetchPokemonSpecies() {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/` + URL.get("name"));
-    const data = await response.json()
-
-    const filteredFlavorTextEntries = data.flavor_text_entries.filter(
-        (element) => element.language.name === "en"
-    )
-
-    const flavorTextEntry =
-        filteredFlavorTextEntries.length > 0 ? filteredFlavorTextEntries[0] : {}
-    console.log(flavorTextEntry);
-
-    const pokemonDescription = document.querySelector(".pokemonDescription");
-
-
-    pokemonDescription.innerHTML = `<div class="entry1">${flavorTextEntry.flavor_text}</div>
-        <button class="switchEntryButton2">1/2&gt</button>`;
-
-
-    document.querySelector(".switchEntryButton2").addEventListener("click", handleEntryButton)
-
-
-}
-
-fetchPokemonSpecies()
-
-
-
-
 
 
 

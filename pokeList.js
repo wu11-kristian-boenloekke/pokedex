@@ -1,4 +1,4 @@
-import { getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
+//import { getPokemonByName} from "./api.js"  //hvis vi skal bruge import skal vi tilføje type="module" i html script link
 //import { getPokemonList } from "./api.js"
 
 
@@ -32,7 +32,11 @@ stroke-width="3">
 </svg>`;
 
 
-
+async function getPokemonByName(name) { 
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
+    const data = await response.json()
+    return data
+}
 
 async function getPokemonList() {
 
@@ -63,7 +67,7 @@ async function renderPokemons() {
         pokemonsContainer.append(li);
     }
 
-    setTimeout(async () => {
+    //setTimeout(async () => {
         const pokemons = await getPokemonList();
         const listOfPokemonsWithSprites = await getListOfPokemonsWithSprites(pokemons);
 
@@ -77,7 +81,7 @@ async function renderPokemons() {
                 </a>`;
         }
 
-    }, 3000);
+    //}, 3000);
     
 }
 
